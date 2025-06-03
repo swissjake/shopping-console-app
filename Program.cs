@@ -105,7 +105,10 @@ public class Program
                 Console.WriteLine("1. List all products");
                 Console.WriteLine("2. View cart");
                 Console.WriteLine("3. Exit");
-                Console.Write("Choose an option (1-3): ");
+                Console.WriteLine("4. To remove a product from the cart");
+                Console.WriteLine("5. To Clear the cart");
+
+                Console.Write("Choose an option (1-5): ");
 
                 switch (Console.ReadLine())
                 {
@@ -128,6 +131,21 @@ public class Program
                     case "3":
                         continueShopping = false;
                         Console.WriteLine("Thank you for shopping with us!");
+                        break;
+                    case "4":
+                        Console.WriteLine("Enter the product ID to remove:");
+                        if (Guid.TryParse(Console.ReadLine(), out Guid productIdToRemove))
+                        {
+                            Product productToRemove = inventory.Products.FirstOrDefault(p => p.Id == productIdToRemove);
+                            cart.RemoveProduct(productToRemove);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid product ID format");
+                        }
+                        break;
+                    case "5":
+                        cart.ClearCart();
                         break;
                     default:
                         Console.WriteLine("Invalid option");

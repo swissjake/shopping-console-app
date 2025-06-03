@@ -35,13 +35,25 @@ public class Cart
         TotalPrice -= product.Price;
     }
 
+    public void ClearCart()
+    {
+        Products.Clear();
+        TotalPrice = 0;
+    }
+
     public void DisplayProducts()
     {
-        foreach (var product in Products)
+        if (Products.Count > 0)
         {
-            product.DisplayProduct();
+            foreach (var product in Products)
+            {
+                product.DisplayProduct();
+            }
         }
-        Console.WriteLine($"Total Price: {TotalPrice}");
+        else
+        {
+            Console.WriteLine("No products in cart");
+        }
     }
 
 }
