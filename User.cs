@@ -25,21 +25,7 @@ public class User
         Console.WriteLine($"Password: {Password}");
     }
 
-    public void Login()
-    {
-        Console.WriteLine("Enter your email:");
-        string email = Console.ReadLine();
-        Console.WriteLine("Enter your password:");
-        string password = Console.ReadLine();
-        if (email == Email && password == Password)
-        {
-            Console.WriteLine("Login successful");
-        }
-        else
-        {
-            Console.WriteLine("Login failed");
-        }
-    }
+
 
 
 }
