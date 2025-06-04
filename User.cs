@@ -23,6 +23,7 @@ public class User
         Console.WriteLine($"Name: {Name}");
         Console.WriteLine($"Email: {Email}");
         Console.WriteLine($"Password: {Password}");
+
     }
 
 
